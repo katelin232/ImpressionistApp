@@ -205,7 +205,8 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
     }
 
     public void onButtonClickInvert(View v) {
-
+        Toast.makeText(this, "Inverting", Toast.LENGTH_LONG).show();
+        this._impressionistView.invert();
     }
 
     /**

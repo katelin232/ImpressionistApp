@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="Invert"
                 android:id="@+id/buttonInvert"
-                android:onClick="onButtonClickClear"
+                android:onClick="onButtonClickInvert"
                 android:layout_weight="0.04" />
 
 

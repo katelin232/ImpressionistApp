@@ -126,6 +126,21 @@ public class ImpressionistView extends View {
         invalidate();
     }
 
+    public void invert(){
+        Rect rect = this.getBitmapPositionInsideImageView(this._imageView);
+        int col;
+        for(int x = 0; x < rect.width(); x++){
+            for(int y = 0; y < rect.height(); y++){
+                col = _offScreenBitmap.getPixel(x, y);
+
+                int red = 0xFF - ((col>>16)&0xFF);
+                int green = 0xFF - ((col>>8)&0xFF);
+                int blue = 0xFF - (col&0xFF);
+                _offScreenBitmap.setPixel(x,y, Color.argb(255, red, green, blue));
+            }
+        }
+    }
+
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
