@@ -138,6 +138,7 @@ public class ImpressionistView extends View {
                 int blue = 0xFF - (col&0xFF);
                 _offScreenBitmap.setPixel(x,y, Color.argb(255, red, green, blue));
             }
+            invalidate();
         }
     }
 
@@ -184,12 +185,12 @@ public class ImpressionistView extends View {
             this._paint.setColor(color);
             switch (_brushType){
                 case Circle:
-                    this._offScreenCanvas.drawCircle(bitMapX, bitMapY, 10, _paint);
+                    this._offScreenCanvas.drawCircle(bitMapX, bitMapY, 20, _paint);
                     invalidate();
                     break;
                 case Square:
                     this._offScreenCanvas.drawRect(
-                            bitMapX - 10, bitMapY - 10, bitMapX + 10, bitMapY + 10, _paint);
+                            bitMapX - 20, bitMapY - 20, bitMapX + 20, bitMapY + 20, _paint);
                     invalidate();
                     break;
                 case Line:
@@ -197,7 +198,7 @@ public class ImpressionistView extends View {
                         float length = Math.abs(bitMapX - _xPrev) + Math.abs(bitMapY - _yPrev);
 
                         this._offScreenCanvas.drawLine(
-                                bitMapX - length / 2, bitMapY - length / 2, bitMapX + length / 2, bitMapY + length / 2, _paint);
+                                bitMapX - length, bitMapY - length, bitMapX + length, bitMapY + length, _paint);
                     }
                     _xPrev = bitMapX;
                     _yPrev = bitMapY;
